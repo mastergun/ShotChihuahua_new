@@ -37,7 +37,7 @@ public class AutoDestroy : MonoBehaviour {
         return enemy;
     }
 
-    void RemoveGroundAndItems()
+    public void RemoveGroundAndItems()
     {
         if (enemies.Count != 0)
         {
@@ -49,5 +49,20 @@ public class AutoDestroy : MonoBehaviour {
         
         enemies.Clear();
         levelRef.RemoveGround(this.gameObject);
+        
+        //levelRef.RemoveGround(this.gameObject);
+    }
+
+    public void RemoveItems()
+    {
+        if (enemies.Count != 0)
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                Destroy(enemy);
+            }
+        }
+
+        enemies.Clear();
     }
 }

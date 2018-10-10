@@ -7,9 +7,11 @@ public class LevelGenerator : MonoBehaviour {
     //public methods
     public GameObject groundPrefab;
     public GameObject chihuahuaRef;
-    public GameObject camera;
+    public GameObject cameraActor;
+    public Shooter foot;
     public Vector2 groundScale;
     public float maxDistSpawn;
+    bool restartingGame = false;
     
     //private methods
     List<GameObject> groundsInGame;
@@ -18,18 +20,26 @@ public class LevelGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         groundsInGame = new List<GameObject>();
-        cameraInitPos = camera.transform.position;
+        cameraInitPos = cameraActor.transform.position;
         //ResetGame();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        float dist = groundsInGame[groundsInGame.Count-1].transform.position.x 
-                     - chihuahuaRef.transform.position.x;
-        if (dist > maxDistSpawn)
+        if (!restartingGame)
         {
-            AddGround();
+            if (groundsInGame.Count != 0)
+            {
+                float dist = groundsInGame[groundsInGame.Count - 1].transform.position.x
+                         - chihuahuaRef.transform.position.x;
+                if (dist > maxDistSpawn)
+                {
+                    AddGround();
+                }
+            }
         }
+        
+        
 	}
 
     void AddGround()
@@ -63,32 +73,35 @@ public class LevelGenerator : MonoBehaviour {
 
     public void ResetGame()
     {
+
+        restartingGame = true;
         DettachCamera();
         chihuahuaRef.GetComponent<ObjectMovement>().ResetObject();
         if (groundsInGame.Count != 0)
         {
-            foreach (GameObject grounds in groundsInGame)
+            for(int i = 0; i < groundsInGame.Count; i++)
             {
-                Destroy(grounds);
+                groundsInGame[i].GetComponent<AutoDestroy>().RemoveItems();
+                Destroy(groundsInGame[i]);
             }
         }
         groundsInGame.Clear();
         AddGround();
         AddGround();
         AddGround();
-        //myGameObject.transform.parent = wallGameObject.transform;
-        //myGameObject.transform.localPosition = wallGameObject.GetComponent<PositionReferences>().GetNextPosition();
+        foot.ResetAnim();
+        restartingGame = false;
     }
     public void AttachCamera()
     {
-        camera.transform.parent = chihuahuaRef.transform;
+        cameraActor.transform.parent = chihuahuaRef.transform;
         //camera.transform.localPosition = chihuahuaRef.transform.localPosition;
     }
 
     public void DettachCamera()
     {
-        camera.transform.parent = null;
-        camera.transform.position = cameraInitPos;
+        cameraActor.transform.parent = null;
+        cameraActor.transform.position = cameraInitPos;
     }
 
     public void PauseGame(bool pause)

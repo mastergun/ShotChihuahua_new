@@ -13,17 +13,16 @@ public class Shooter : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("click detected");
             if (!pressed)
             {
-                Debug.Log("click detected");
+
                 pressed = true;
                 this.GetComponent<Animator>().SetBool("shot", true);
             } 
         }
     }
 
-    void ResetAnim(){
+    public void ResetAnim(){
         pressed = false;
         this.GetComponent<Animator>().SetBool("shot", false);
     }

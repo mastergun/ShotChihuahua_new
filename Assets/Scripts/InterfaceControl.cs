@@ -9,15 +9,15 @@ public class InterfaceControl : MonoBehaviour {
         MAINMENU,
         TEAMMENU,
         SETTINGSMENU,
-        GAMELOOP
+        PAUSEMENU,
+        GAMELOOP,
+        INGAMEUI,
+        RESTARTMENU
     }
 
     public GameObject[] menus;
-    public GameObject pauseButton;
     public GameObject undoButton;
 
-    Vector3 scoreGamePos;
-    Vector2 scoreGameSize;
     // Use this for initialization
     void Start()
     {
@@ -35,7 +35,10 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.SETTINGSMENU].SetActive(false);
         menus[(int)stage.TEAMMENU].SetActive(false);
         menus[(int)stage.GAMELOOP].SetActive(false);
-        pauseButton.SetActive(false);
+        this.GetComponent<LevelGenerator>().PauseGame(false);
+        menus[(int)stage.PAUSEMENU].SetActive(false);
+        menus[(int)stage.INGAMEUI].SetActive(false);
+        menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(false);
     }
 
@@ -45,7 +48,9 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.MAINMENU].SetActive(false);
         menus[(int)stage.SETTINGSMENU].SetActive(false);
         menus[(int)stage.GAMELOOP].SetActive(false);
-        pauseButton.SetActive(false);
+        menus[(int)stage.PAUSEMENU].SetActive(false);
+        menus[(int)stage.INGAMEUI].SetActive(false);
+        menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(true);
     }
 
@@ -55,7 +60,9 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.MAINMENU].SetActive(false);
         menus[(int)stage.TEAMMENU].SetActive(false);
         menus[(int)stage.GAMELOOP].SetActive(false);
-        pauseButton.SetActive(false);
+        menus[(int)stage.PAUSEMENU].SetActive(false);
+        menus[(int)stage.INGAMEUI].SetActive(false);
+        menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(true);
     }
 
@@ -65,50 +72,17 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.MAINMENU].SetActive(false);
         menus[(int)stage.TEAMMENU].SetActive(false);
         menus[(int)stage.SETTINGSMENU].SetActive(false);
-        pauseButton.SetActive(true);
+        menus[(int)stage.PAUSEMENU].SetActive(false);
+        menus[(int)stage.INGAMEUI].SetActive(true);
+        menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(false);
         this.GetComponent<LevelGenerator>().ResetGame();
     }
 
-    //public void FirstPageCharge()
-    //{
-    //    buttons[(int)stage.FIRSTPAGE].GetComponent<DeactivateButton>().activateSelf(true);
-    //    buttons[(int)stage.GAMELOOP].GetComponent<DeactivateButton>().activateSelf(false);
-    //    buttons[(int)stage.SCORESCREEN].GetComponent<DeactivateButton>().activateSelf(false);
-    //    scoreText.GetComponent<DeactivateButton>().activateSelf(false);
-    //    spawnerRef.Reset();
-    //    inputHandRef.ActiveGame(false);
-    //    SetMainGame(false);
-    //    this.gameObject.transform.position = new Vector3(0.0f, 0.0f, -10.0f);
-    //}
-
-    //public void GameLoopCharge()
-    //{
-    //    buttons[(int)stage.FIRSTPAGE].GetComponent<DeactivateButton>().activateSelf(false);
-    //    buttons[(int)stage.GAMELOOP].GetComponent<DeactivateButton>().activateSelf(true);
-    //    buttons[(int)stage.SCORESCREEN].GetComponent<DeactivateButton>().activateSelf(false);
-    //    scoreText.GetComponent<DeactivateButton>().activateSelf(true);
-    //    playerRef.RestartPlayer();
-    //    scoreText.GetComponent<RectTransform>().position = scoreGamePos;
-    //    scoreText.GetComponent<RectTransform>().localScale = scoreGameSize;
-    //    inputHandRef.ActiveGame(true);
-    //    SetMainGame(true);
-    //    this.gameObject.transform.position = new Vector3((Screen.width / 100) * 20, 0.0f, -10.0f);
-    //}
-
-    //public void ScooreScreenCharge()
-    //{
-    //    buttons[(int)stage.FIRSTPAGE].GetComponent<DeactivateButton>().activateSelf(false);
-    //    buttons[(int)stage.GAMELOOP].GetComponent<DeactivateButton>().activateSelf(false);
-    //    buttons[(int)stage.SCORESCREEN].GetComponent<DeactivateButton>().activateSelf(true);
-    //    scoreText.GetComponent<DeactivateButton>().activateSelf(true);
-    //    scoreText.GetComponent<RectTransform>().position = new Vector3(Screen.width / 2 + 2.0f, Screen.height / 1.7f, Camera.main.nearClipPlane);
-    //    scoreText.GetComponent<RectTransform>().localScale = scoreGameSize * 2f;
-    //    inputHandRef.ActiveGame(false);
-    //    SetMainGame(false);
-    //    this.gameObject.transform.position = new Vector3((Screen.width / 100) * 40, 0.0f, -10.0f);
-    //}
-
+    public void ActivateRestartMenu()
+    {
+        menus[(int)stage.RESTARTMENU].SetActive(true);
+    }
     void SetGameSizeAndPos()
     {
     //    logo.GetComponent<Transform>().localScale = new Vector2((Screen.height / 100) * logo.GetComponent<Transform>().localScale.x, (Screen.height / 100) * logo.GetComponent<Transform>().localScale.y);

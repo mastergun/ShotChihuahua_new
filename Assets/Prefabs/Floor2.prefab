@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelRef: {fileID: 0}
-  maxDistDestroy: -50
+  maxDistDestroy: -100
   enemiePrefab: {fileID: 1416769147889904, guid: df0dde1ab6ec6474ca5494caac0098aa,
     type: 2}
 --- !u!212 &212629943252861532
