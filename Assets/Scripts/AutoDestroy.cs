@@ -8,12 +8,12 @@ public class AutoDestroy : MonoBehaviour {
     public float maxDistDestroy;
     public GameObject enemiePrefab;
     List<GameObject> enemies;
-    int numOfEnemies;
+    public int numOfEnemies = 0;
     // Use this for initialization
     void Start () {
         enemies = new List<GameObject>();
-        numOfEnemies = Random.Range(1, 3); 
-        for(int i = 0; i < numOfEnemies; i++)
+        //numOfEnemies = nEnemies;
+        for (int i = 0; i < numOfEnemies; i++)
         {
             enemies.Add(InicializeEnemy());
         }

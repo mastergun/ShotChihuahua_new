@@ -16,10 +16,9 @@ public class ObjectMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         if (flying)
         {
-            if (this.GetComponent<Rigidbody2D>().velocity.x >= 0)
+            if (this.GetComponent<Rigidbody2D>().velocity.magnitude <= 7 && this.GetComponent<Rigidbody2D>().velocity.y < 0.3f)
             {
                 this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 this.GetComponent<Rigidbody2D>().angularVelocity = 0;
@@ -29,10 +28,10 @@ public class ObjectMovement : MonoBehaviour {
                 gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
             }
         }
-        else
-        {
-            if (this.GetComponent<Rigidbody2D>().velocity.x < 0) flying = true;
-        }
+        //else
+        //{
+        //    if (this.GetComponent<Rigidbody2D>().velocity.x < 0) flying = true;
+        //}
     }
 
     public void ResetObject()
@@ -49,13 +48,16 @@ public class ObjectMovement : MonoBehaviour {
         {
             Vector2 dir= new Vector2(this.transform.position.x, this.transform.position.y) - col.contacts[0].point;
             this.GetComponent<Rigidbody2D>().AddForce(dir * forceBase);
+            this.GetComponent<Rigidbody2D>().AddTorque(-200);
             gameControlRef.GetComponent<ScoreManager>().parseScore= true;
             gameControlRef.AttachCamera();
+            gameControlRef.foot.deactivateInput = true;
             flying = true;
         }else if(col.gameObject.tag == "Enemy")
         {
             Vector2 dir = new Vector2(-1,1).normalized;
             this.GetComponent<Rigidbody2D>().AddForce(dir * enemiesForceBase);
+            this.GetComponent<Rigidbody2D>().AddTorque(5.0f);
         }
     }
 

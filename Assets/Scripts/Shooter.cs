@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour {
     bool pressed = false;
+    public bool deactivateInput = false;
     // Use this for initialization
     void Start () {
 		
@@ -11,11 +12,10 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && deactivateInput)
         {
             if (!pressed)
             {
-
                 pressed = true;
                 this.GetComponent<Animator>().SetBool("shot", true);
             } 
@@ -23,7 +23,11 @@ public class Shooter : MonoBehaviour {
     }
 
     public void ResetAnim(){
-        pressed = false;
         this.GetComponent<Animator>().SetBool("shot", false);
+    }
+
+    public void ResetState() {
+        pressed = false;
+        deactivateInput = true;
     }
 }

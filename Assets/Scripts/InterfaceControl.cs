@@ -83,6 +83,7 @@ public class InterfaceControl : MonoBehaviour {
     {
         menus[(int)stage.RESTARTMENU].SetActive(true);
     }
+
     void SetGameSizeAndPos()
     {
     //    logo.GetComponent<Transform>().localScale = new Vector2((Screen.height / 100) * logo.GetComponent<Transform>().localScale.x, (Screen.height / 100) * logo.GetComponent<Transform>().localScale.y);
