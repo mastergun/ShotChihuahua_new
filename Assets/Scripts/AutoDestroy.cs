@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoDestroy : MonoBehaviour {
-
+    public int type;
     public LevelGenerator levelRef;
     public float maxDistDestroy;
+    public bool reset = false;
     public GameObject enemiePrefab;
     List<GameObject> enemies;
     public int numOfEnemies = 0;
@@ -22,6 +23,11 @@ public class AutoDestroy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float dist = levelRef.chihuahuaRef.transform.position.x - this.transform.position.x;
+        if (reset)
+        {
+            dist = -dist;
+            Debug.Log("hello reset");
+        }
         if (dist < maxDistDestroy)
         {
             RemoveGroundAndItems();
@@ -48,7 +54,7 @@ public class AutoDestroy : MonoBehaviour {
         }
         
         enemies.Clear();
-        levelRef.RemoveGround(this.gameObject);
+        levelRef.RemoveGround(this.gameObject, type);
         
         //levelRef.RemoveGround(this.gameObject);
     }

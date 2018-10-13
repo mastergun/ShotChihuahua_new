@@ -7,6 +7,7 @@ TagManager:
   - Shooter
   - Enemy
   - Ground
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - background
+  - front
   - 
   - 
   - 

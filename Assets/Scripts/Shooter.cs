@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Shooter : MonoBehaviour {
     bool pressed = false;
-    public bool deactivateInput = false;
+    public bool deactivateInput = true;
+ 
     // Use this for initialization
     void Start () {
 		
@@ -18,12 +20,13 @@ public class Shooter : MonoBehaviour {
             {
                 pressed = true;
                 this.GetComponent<Animator>().SetBool("shot", true);
-            } 
+            }
         }
     }
 
     public void ResetAnim(){
         this.GetComponent<Animator>().SetBool("shot", false);
+        pressed = false;
     }
 
     public void ResetState() {

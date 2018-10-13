@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour {
-
+    public List<Sprite> frames;
     public float forceBase;
     public float enemiesForceBase;
     public LevelGenerator gameControlRef;
@@ -20,6 +20,8 @@ public class ObjectMovement : MonoBehaviour {
         {
             if (this.GetComponent<Rigidbody2D>().velocity.magnitude <= 7 && this.GetComponent<Rigidbody2D>().velocity.y < 0.3f)
             {
+                this.GetComponent<SpriteRenderer>().sprite = frames[0];
+                this.transform.rotation = Quaternion.identity;
                 this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 this.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 gameControlRef.GetComponent<ScoreManager>().parseScore = false;
@@ -36,6 +38,7 @@ public class ObjectMovement : MonoBehaviour {
 
     public void ResetObject()
     {
+        this.GetComponent<SpriteRenderer>().sprite = frames[1];
         this.transform.position = initPos;
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         this.GetComponent<Rigidbody2D>().angularVelocity = 0;
@@ -46,6 +49,7 @@ public class ObjectMovement : MonoBehaviour {
     {
         if (col.gameObject.tag == "Shooter")
         {
+            this.GetComponent<SpriteRenderer>().sprite = frames[1];
             Vector2 dir= new Vector2(this.transform.position.x, this.transform.position.y) - col.contacts[0].point;
             this.GetComponent<Rigidbody2D>().AddForce(dir * forceBase);
             this.GetComponent<Rigidbody2D>().AddTorque(-200);
