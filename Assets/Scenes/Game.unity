@@ -835,14 +835,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 533679077}
-  m_LocalRotation: {x: -0, y: -0, z: 0.52587295, w: 0.85056317}
-  m_LocalPosition: {x: 3.4020002, y: -1.289, z: 0.21}
-  m_LocalScale: {x: 6, y: 20, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.314, y: -1.013, z: 0.21}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1818311281}
   m_Father: {fileID: 387001374}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 63.454002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &533679079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,7 +1653,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d89ab3bab32a1a34bbe6ba6c2011b708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efe8ffe285fce084b94fe1cfc5fd61b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1670,8 +1670,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756427758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.41, y: -1.23, z: 0}
-  m_LocalScale: {x: 10, y: 35, z: 1}
+  m_LocalPosition: {x: 3.166, y: -0.97, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 387001374}
   m_RootOrder: 0
@@ -3176,8 +3176,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 1828258302401404, guid: 6fab8192a1147444b8ca8244c1079082,
     type: 2}
-  cityPrefab: {fileID: 1178443337464008, guid: 52d5529be0e28e94eae79c3e349760db, type: 2}
-  skyPrefab: {fileID: 1322720584282470, guid: 1ca2a9bc8aff68842aa7eb44554fce99, type: 2}
+  cityPrefabs:
+  - {fileID: 1178443337464008, guid: 52d5529be0e28e94eae79c3e349760db, type: 2}
+  - {fileID: 1670113580698608, guid: fbe16a0c7f1a4044e8fe63f6939a01f2, type: 2}
+  - {fileID: 1511028820364160, guid: a9fe13962b5945941aa61c979455dfa8, type: 2}
+  skyPrefabs:
+  - {fileID: 1322720584282470, guid: 1ca2a9bc8aff68842aa7eb44554fce99, type: 2}
+  - {fileID: 1178231469888292, guid: 1f791bf61ce24504f945a4254a488095, type: 2}
+  - {fileID: 1423160591866548, guid: cdd272aa2961af940a5070c953fef1cf, type: 2}
   galaxyPrefab: {fileID: 1858001876045774, guid: 5af8e3134161f9b468201d13ea3af868,
     type: 2}
   chihuahuaRef: {fileID: 1612071320}
@@ -3840,7 +3846,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818311280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0009999871, y: -0.0507, z: 0}
+  m_LocalPosition: {x: 2.15, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 533679078}
@@ -3880,7 +3886,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d89ab3bab32a1a34bbe6ba6c2011b708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15c459033a3888244a7a34b27a272c0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3922,9 +3928,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000014901161, y: 0.000000014901161}
-  m_Size: {x: 0.09999999, y: 0.09999999}
-  m_Direction: 0
+  m_Offset: {x: -0.104024425, y: -0.035017274}
+  m_Size: {x: 5.407058, y: 1.4312893}
+  m_Direction: 1
 --- !u!1 &2077700927
 GameObject:
   m_ObjectHideFlags: 0

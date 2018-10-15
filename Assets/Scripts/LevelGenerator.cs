@@ -14,8 +14,8 @@ public class LevelGenerator : MonoBehaviour {
 
     //public methods
     public GameObject groundPrefab;
-    public GameObject cityPrefab;
-    public GameObject skyPrefab;
+    public List<GameObject> cityPrefabs;
+    public List<GameObject> skyPrefabs;
     public GameObject galaxyPrefab;
 
     public GameObject chihuahuaRef;
@@ -33,6 +33,7 @@ public class LevelGenerator : MonoBehaviour {
     List<GameObject> skiesInGame;
     List<GameObject> galaxiesInGame;
     Vector3 cameraInitPos;
+    int backgroundIndex = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -113,8 +114,9 @@ public class LevelGenerator : MonoBehaviour {
         GameObject prefab;
 
         //set prefab
-        if (stage == STAGE.CITY) prefab = cityPrefab;
-        else if (stage == STAGE.SKY) prefab = skyPrefab;
+        Debug.Log((backgroundIndex % cityPrefabs.Count));
+        if (stage == STAGE.CITY) prefab = cityPrefabs[(backgroundIndex % cityPrefabs.Count)];
+        else if (stage == STAGE.SKY) prefab = skyPrefabs[(backgroundIndex % cityPrefabs.Count)];
         else prefab = galaxyPrefab;
 
         float xPos = groundPosX;
@@ -128,8 +130,11 @@ public class LevelGenerator : MonoBehaviour {
         bg.GetComponent<AutoDestroy>().levelRef = this;
 
         if (stage == STAGE.CITY) AddBackground(0, xPos, STAGE.SKY);
-        if (stage == STAGE.SKY) AddBackground(0, xPos, STAGE.GALAXY);
-
+        if (stage == STAGE.SKY)
+        {
+            AddBackground(0, xPos, STAGE.GALAXY);
+            backgroundIndex++;
+        }
         return bg;
     }
 
@@ -143,7 +148,7 @@ public class LevelGenerator : MonoBehaviour {
         chihuahuaRef.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 4000);
        
         ResetBackground();
-
+        backgroundIndex = 1;
         AddBackground(0,0,STAGE.GROUND);
         AddBackground(0,0, STAGE.GROUND);
         AddBackground(0,0, STAGE.GROUND);
