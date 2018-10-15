@@ -94,7 +94,8 @@ public class LevelGenerator : MonoBehaviour {
         //set a new condition of spawning 
         if (groundsInGame.Count == 0)
         {
-            bg = (GameObject)Instantiate(groundPrefab, new Vector3(this.transform.position.x, this.transform.position.y, 1),transform.rotation);
+            xPos = this.transform.position.x;
+            bg = (GameObject)Instantiate(groundPrefab, new Vector3(xPos, this.transform.position.y, 1),transform.rotation);
         }
         else
         {
@@ -120,10 +121,10 @@ public class LevelGenerator : MonoBehaviour {
         else prefab = galaxyPrefab;
 
         float xPos = groundPosX;
-        float yPos = this.transform.position.y + groundScale.x/2 - groundScale.y;
+        float yPos = this.transform.position.y + groundScale.x/2;
 
-        if (stage == STAGE.SKY) yPos += 52;
-        if (stage == STAGE.GALAXY) yPos += 104;
+        if (stage == STAGE.SKY) yPos += 26;
+        if (stage == STAGE.GALAXY) yPos += 52;
 
         bg = (GameObject)Instantiate(prefab, new Vector3(xPos, yPos, 2.0f), transform.rotation);
         bg.GetComponent<AutoDestroy>().numOfEnemies = 0;
