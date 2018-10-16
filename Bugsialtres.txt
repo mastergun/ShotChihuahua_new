@@ -1,9 +1,5 @@
 bugs:
 -cama s'anima quan reinicies 
--en alguns casos mina dispara enrrera en ves d'endavant 
 -gos acaba el recorregut i la velocitat en y encara es elevada
 -al reiniciar l'score et surt l'antic 
 -???bug amb la condicio de final de partida
-
-apreciacions:
--menys mines

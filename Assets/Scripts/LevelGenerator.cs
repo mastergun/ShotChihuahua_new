@@ -55,7 +55,7 @@ public class LevelGenerator : MonoBehaviour {
                          - chihuahuaRef.transform.position.x;
                 if (dist > maxDistSpawn)
                 {
-                    AddBackground(Random.Range(1,3),0,STAGE.GROUND);
+                    AddBackground(Random.Range(0,2),0,STAGE.GROUND);
                 }
             }
         }

@@ -82,7 +82,7 @@ MonoBehaviour:
   levelRef: {fileID: 0}
   maxDistDestroy: -100
   reset: 0
-  enemiePrefab: {fileID: 1416769147889904, guid: df0dde1ab6ec6474ca5494caac0098aa,
+  enemiePrefab: {fileID: 1268114716321154, guid: 6331a6fcdf25a624aa1a55c4a409d122,
     type: 2}
   numOfEnemies: 0
 --- !u!212 &212629943252861532
