@@ -115,7 +115,7 @@ public class LevelGenerator : MonoBehaviour {
         GameObject prefab;
 
         //set prefab
-        Debug.Log((backgroundIndex % cityPrefabs.Count));
+        
         if (stage == STAGE.CITY) prefab = cityPrefabs[(backgroundIndex % cityPrefabs.Count)];
         else if (stage == STAGE.SKY) prefab = skyPrefabs[(backgroundIndex % cityPrefabs.Count)];
         else prefab = galaxyPrefab;
@@ -144,7 +144,8 @@ public class LevelGenerator : MonoBehaviour {
 
         restartingGame = true;
         DettachCamera();
-        
+
+        this.GetComponent<ScoreManager>().ResetCurrentScore();
         chihuahuaRef.GetComponent<ObjectMovement>().ResetObject();
         chihuahuaRef.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 4000);
        

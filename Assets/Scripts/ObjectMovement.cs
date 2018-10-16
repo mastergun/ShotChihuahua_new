@@ -18,7 +18,8 @@ public class ObjectMovement : MonoBehaviour {
 	void Update () {
         if (flying)
         {
-            if (this.GetComponent<Rigidbody2D>().velocity.magnitude <= 7 && this.GetComponent<Rigidbody2D>().velocity.y < 0.3f)
+
+            if (this.GetComponent<Rigidbody2D>().velocity.magnitude <= 7 && this.GetComponent<Rigidbody2D>().velocity.y < 0.3f && this.transform.position.y < 5)
             {
                 this.GetComponent<SpriteRenderer>().sprite = frames[0];
                 this.transform.rotation = Quaternion.identity;
@@ -55,7 +56,8 @@ public class ObjectMovement : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().AddTorque(-200);
             gameControlRef.GetComponent<ScoreManager>().parseScore= true;
             gameControlRef.AttachCamera();
-            gameControlRef.foot.deactivateInput = true;
+            gameControlRef.foot.deactivateInput = false;
+            Debug.Log("input deactivated");
             flying = true;
         }else if(col.gameObject.tag == "Enemy")
         {
