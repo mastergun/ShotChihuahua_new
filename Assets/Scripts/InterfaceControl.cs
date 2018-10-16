@@ -88,12 +88,11 @@ public class InterfaceControl : MonoBehaviour {
 
     public void PauseGame(bool pause)
     {
+        menus[(int)stage.PAUSEMENU].SetActive(true);
         if (pause)
         {
-            menus[(int)stage.PAUSEMENU].SetActive(true);
-            if (menus[(int)stage.RESTARTMENU].activeSelf)
+            if (menus[(int)stage.RESTARTMENU].activeInHierarchy)
             {
-                menus[(int)stage.RESTARTMENU].SetActive(false);
                 menusInPause = true;
             }
         }
@@ -106,7 +105,7 @@ public class InterfaceControl : MonoBehaviour {
             }
             menusInPause = false;
         }
-    }
+    }  
 }
 
 
