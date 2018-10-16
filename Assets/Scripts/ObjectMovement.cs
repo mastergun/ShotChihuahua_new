@@ -19,7 +19,7 @@ public class ObjectMovement : MonoBehaviour {
         if (flying)
         {
 
-            if (this.GetComponent<Rigidbody2D>().velocity.magnitude <= 7 && this.GetComponent<Rigidbody2D>().velocity.y < 0.3f && this.transform.position.y < 5)
+            if (this.GetComponent<Rigidbody2D>().velocity.magnitude <= 5 && this.transform.position.y < -1)
             {
                 this.GetComponent<SpriteRenderer>().sprite = frames[0];
                 this.transform.rotation = Quaternion.identity;
@@ -30,6 +30,16 @@ public class ObjectMovement : MonoBehaviour {
                 flying = false;
                 gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
             }
+        }else if (this.GetComponent<Rigidbody2D>().velocity.magnitude <0.1 && this.transform.position.y < -1)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = frames[0];
+            this.transform.rotation = Quaternion.identity;
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            this.GetComponent<Rigidbody2D>().angularVelocity = 0;
+            gameControlRef.GetComponent<ScoreManager>().parseScore = false;
+            flying = false;
+            gameControlRef.foot.deactivateInput = false;
+            gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
         }
         //else
         //{

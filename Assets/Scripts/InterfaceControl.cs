@@ -17,7 +17,7 @@ public class InterfaceControl : MonoBehaviour {
 
     public GameObject[] menus;
     public GameObject undoButton;
-
+    bool menusInPause = false;
     // Use this for initialization
     void Start()
     {
@@ -40,6 +40,7 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.INGAMEUI].SetActive(false);
         menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(false);
+        menusInPause = false;
     }
 
     public void SetTeamMenu(bool activated)
@@ -77,6 +78,7 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(false);
         this.GetComponent<LevelGenerator>().ResetGame();
+        menusInPause = false;
     }
 
     public void ActivateRestartMenu()
@@ -84,15 +86,26 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.RESTARTMENU].SetActive(true);
     }
 
-    void SetGameSizeAndPos()
+    public void PauseGame(bool pause)
     {
-    //    logo.GetComponent<Transform>().localScale = new Vector2((Screen.height / 100) * logo.GetComponent<Transform>().localScale.x, (Screen.height / 100) * logo.GetComponent<Transform>().localScale.y);
-    //    for (int i = 0; i < (int)stage.ENUMSIZE; i++)
-    //    {
-    //        backgrounds[i].GetComponent<Transform>().localScale = new Vector3(Screen.width / 100, Screen.height / 100, 1.0f);
-    //        backgrounds[i].GetComponent<Transform>().position = new Vector3((Screen.width / 100) * i * 20, 0.0f, 1.0f);
-    //    }
-    //    Camera.main.orthographicSize = Screen.height / 100;
+        if (pause)
+        {
+            menus[(int)stage.PAUSEMENU].SetActive(true);
+            if (menus[(int)stage.RESTARTMENU].activeSelf)
+            {
+                menus[(int)stage.RESTARTMENU].SetActive(false);
+                menusInPause = true;
+            }
+        }
+        else
+        {
+            menus[(int)stage.PAUSEMENU].SetActive(false);
+            if (menusInPause)
+            {
+                menus[(int)stage.RESTARTMENU].SetActive(true);
+            }
+            menusInPause = false;
+        }
     }
 }
 
