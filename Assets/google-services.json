@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "769773714242",
+    "firebase_url": "https://shot-chihuhua.firebaseio.com",
+    "project_id": "shot-chihuhua",
+    "storage_bucket": "shot-chihuhua.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769773714242:android:8d3e1e6749f33c84",
+        "android_client_info": {
+          "package_name": "com.MirrorGames.ShotChihuahua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769773714242-9rcguir5ep424u8684hfl45qu31c7a9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBii5DV8-BgJhAv_bFwuoBrjl522luyvVE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
