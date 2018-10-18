@@ -302,7 +302,6 @@
     <Compile Include="Assets\Scripts\InicializerScript.cs" />
     <Compile Include="Assets\Scripts\InterfaceControl.cs" />
     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
-    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\ObjectMovement.cs" />
     <Compile Include="Assets\Scripts\Save.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />

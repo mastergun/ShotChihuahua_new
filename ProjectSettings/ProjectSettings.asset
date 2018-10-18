@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: 14651a73b69b4b44a8e9cb79ba3a2cb6
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -131,7 +131,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.3
   preloadedAssets:
   - {fileID: 1178443337464008, guid: 52d5529be0e28e94eae79c3e349760db, type: 2}
   - {fileID: 1670113580698608, guid: fbe16a0c7f1a4044e8fe63f6939a01f2, type: 2}
@@ -173,7 +173,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.MirrorGames.ShotChihuahua
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
