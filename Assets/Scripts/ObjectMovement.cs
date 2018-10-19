@@ -10,6 +10,8 @@ public class ObjectMovement : MonoBehaviour {
     public LevelGenerator gameControlRef;
     public Vector3 initPos;
     public AudioClip hitChihuahua;
+    public AudioClip trampolin;
+
     //velocimeter
     public Slider Velocimeter;
     public float velocDownVelocity = 0.07f;
@@ -53,6 +55,8 @@ public class ObjectMovement : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             this.GetComponent<Rigidbody2D>().angularVelocity = 0;
             gameControlRef.GetComponent<ScoreManager>().parseScore = false;
+            gameControlRef.GetComponent<ScoreManager>().CompareScore();
+            gameControlRef.GetComponent<ScoreManager>().SetMaxScoreScreen();
             flying = false;
             activatedCollisions = false;
             gameControlRef.foot.deactivateInput = false;
@@ -118,7 +122,7 @@ public class ObjectMovement : MonoBehaviour {
             else if (col.gameObject.tag == "Enemy")
             {
                 Vector2 dir = new Vector2(-1, 1).normalized;
-
+                source.PlayOneShot(trampolin, 1.0f);
                 //this.GetComponent<Rigidbody2D>().AddForce(dir * enemiesForceBase);
                 this.GetComponent<Rigidbody2D>().AddForce(dir * this.GetComponent<Rigidbody2D>().velocity.magnitude * enemiesForceBase);
                 this.GetComponent<Rigidbody2D>().AddTorque(5.0f);

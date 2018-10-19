@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour {
     public Text mainMenuMaxScore;
     public GameObject MaxScoreBackground;
     public GameObject inGameScoreUI;
+    public AudioClip amazingEffect;
+    private AudioSource source;
     float MaxScore;
     float currentScore;
     float initPoint;
@@ -24,6 +26,7 @@ public class ScoreManager : MonoBehaviour {
         LoadGame();
         initPoint = this.GetComponent<LevelGenerator>().chihuahuaRef.transform.position.x;
         currentScore = 0;
+        source = GetComponent<AudioSource>();
         if (!firstTimeGame) MaxScore = 0.0f;
     }
 	
@@ -50,6 +53,7 @@ public class ScoreManager : MonoBehaviour {
         {
             SetMaxScore(currentScore);
             MaxScoreBackground.SetActive(true);
+            source.PlayOneShot(amazingEffect, 1.0f);
         }
     }
 
@@ -88,7 +92,6 @@ public class ScoreManager : MonoBehaviour {
 
         //reset variable if you need
 
-        Debug.Log("Game Saved");
     }
 
     public void LoadGame()
@@ -106,7 +109,6 @@ public class ScoreManager : MonoBehaviour {
             MaxScore = save.MaxScore;
             SetMaxScore(MaxScore);
             firstTimeGame = save.firstTimeGame;
-            Debug.Log("Game Loaded");
         }
         else
         {

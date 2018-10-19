@@ -12,7 +12,6 @@ public class InicializerScript : MonoBehaviour {
     // Use this for initialization
     public void Start()
     {
-        Debug.Log("banner inicialized");
         #if UNITY_ANDROID
             string appId = "ca-app-pub-8875687836686988~5528390280";
         //#elif UNITY_IPHONE
