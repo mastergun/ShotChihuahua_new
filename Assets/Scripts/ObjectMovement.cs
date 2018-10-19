@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour {
@@ -9,10 +10,14 @@ public class ObjectMovement : MonoBehaviour {
     public LevelGenerator gameControlRef;
     public Vector3 initPos;
     public AudioClip hitChihuahua;
-
+    public Slider Velocimeter;
+    public float velocDownVelocity = 0.07f;
+    public float velocUpVelocity = 0.03f;
     private AudioSource source;
     bool flying = false;
     bool activatedCollisions = false;
+    float velocimeterCounter;
+    bool up = true;
     // Use this for initialization
     void Start () {
         //initPos = this.transform.position;
@@ -32,6 +37,7 @@ public class ObjectMovement : MonoBehaviour {
                 this.GetComponent<Rigidbody2D>().angularVelocity = 0;
                 gameControlRef.GetComponent<ScoreManager>().parseScore = false;
                 gameControlRef.GetComponent<ScoreManager>().CompareScore();
+                gameControlRef.GetComponent<ScoreManager>().SetMaxScoreScreen();
                 activatedCollisions = false;
                 flying = false;
                 gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
@@ -48,39 +54,56 @@ public class ObjectMovement : MonoBehaviour {
             gameControlRef.foot.deactivateInput = false;
             gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
         }
-        //else
-        //{
-        //    if (this.GetComponent<Rigidbody2D>().velocity.x < 0) flying = true;
-        //}
+        else if(!flying)
+        {
+            if (up)
+            {
+                velocimeterCounter += velocUpVelocity;
+                if (velocimeterCounter > 1) up = false;
+            }
+            else
+            {
+                velocimeterCounter -= velocDownVelocity;
+                if (velocimeterCounter < -0.5) up = true;
+            }
+            Velocimeter.value = velocimeterCounter;
+        }
     }
 
     public void ResetObject()
     {
         this.GetComponent<SpriteRenderer>().sprite = frames[1];
         this.transform.position = initPos;
+        velocimeterCounter = 0;
+        up = true;
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         this.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1) * Random.Range(2000, 5500));
         activatedCollisions = true;
         flying = false;
     }
 
+    float GetShotForce()
+    {
+        float force = Mathf.Clamp(velocimeterCounter, 0.3f, 1); ;
+        force *= forceBase;
+        return force;
+    }
     void OnCollisionEnter2D(Collision2D col)
     {
         if (activatedCollisions)
         {
-            //Debug.Log(this.GetComponent<Rigidbody2D>().velocity.y);
-            //if(this.GetComponent<Rigidbody2D>().velocity.y < 0.6) 
             if (col.gameObject.tag == "Shooter")
             {
                 source.PlayOneShot(hitChihuahua, 1.0f);
                 this.GetComponent<SpriteRenderer>().sprite = frames[1];
                 Vector2 dir = new Vector2(this.transform.position.x, this.transform.position.y) - col.contacts[0].point;
-                this.GetComponent<Rigidbody2D>().AddForce(dir * forceBase);
+                this.GetComponent<Rigidbody2D>().AddForce(dir * GetShotForce());
                 this.GetComponent<Rigidbody2D>().AddTorque(-200);
                 gameControlRef.GetComponent<ScoreManager>().parseScore = true;
                 gameControlRef.AttachCamera();
+                Velocimeter.GetComponentInParent<DeactivateButton>().activateSelf(false);
                 gameControlRef.foot.deactivateInput = false;
-                Debug.Log("input deactivated");
                 flying = true;
             }
             else if (col.gameObject.tag == "Enemy")

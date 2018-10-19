@@ -147,7 +147,7 @@ public class LevelGenerator : MonoBehaviour {
 
         this.GetComponent<ScoreManager>().ResetCurrentScore();
         chihuahuaRef.GetComponent<ObjectMovement>().ResetObject();
-        chihuahuaRef.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 4000);
+        //chihuahuaRef.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 4000);
        
         ResetBackground();
         backgroundIndex = 1;

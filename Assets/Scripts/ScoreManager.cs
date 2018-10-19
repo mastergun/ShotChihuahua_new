@@ -9,7 +9,10 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour {
 
     public Text score;
+    public Text finalScore;
     public Text mainMenuMaxScore;
+    public GameObject MaxScoreBackground;
+    public GameObject inGameScoreUI;
     float MaxScore;
     float currentScore;
     float initPoint;
@@ -43,14 +46,25 @@ public class ScoreManager : MonoBehaviour {
 
     public void CompareScore()
     {
-        if (currentScore > MaxScore) SetMaxScore(currentScore); 
+        if (currentScore > MaxScore)
+        {
+            SetMaxScore(currentScore);
+            MaxScoreBackground.SetActive(true);
+        }
     }
 
     public void ResetCurrentScore()
     {
         currentScore = 0;
         score.text = currentScore.ToString();
+        MaxScoreBackground.SetActive(false);
+        inGameScoreUI.SetActive(true);
         parseScore = false;
+    }
+    public void SetMaxScoreScreen()
+    {
+        inGameScoreUI.SetActive(false);
+        finalScore.text = currentScore.ToString("F1") + "m";
     }
 
     private Save CreateSaveGameObject()
