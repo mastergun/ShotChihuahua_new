@@ -10,13 +10,17 @@ public class ObjectMovement : MonoBehaviour {
     public LevelGenerator gameControlRef;
     public Vector3 initPos;
     public AudioClip hitChihuahua;
+    //velocimeter
     public Slider Velocimeter;
     public float velocDownVelocity = 0.07f;
     public float velocUpVelocity = 0.03f;
+
     private AudioSource source;
+
     bool flying = false;
     bool activatedCollisions = false;
     float velocimeterCounter;
+    bool activateVelocimeter = true;
     bool up = true;
     // Use this for initialization
     void Start () {
@@ -54,7 +58,7 @@ public class ObjectMovement : MonoBehaviour {
             gameControlRef.foot.deactivateInput = false;
             gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
         }
-        else if(!flying)
+        else if(!flying && activateVelocimeter)
         {
             if (up)
             {
@@ -74,8 +78,7 @@ public class ObjectMovement : MonoBehaviour {
     {
         this.GetComponent<SpriteRenderer>().sprite = frames[1];
         this.transform.position = initPos;
-        velocimeterCounter = 0;
-        up = true;
+        ActivateVelocimeter(true);
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         this.GetComponent<Rigidbody2D>().angularVelocity = 0;
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1) * Random.Range(2000, 5500));
@@ -89,6 +92,11 @@ public class ObjectMovement : MonoBehaviour {
         force *= forceBase;
         return force;
     }
+    public void ActivateVelocimeter(bool active)
+    {
+        activateVelocimeter = active;
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (activatedCollisions)
@@ -100,6 +108,7 @@ public class ObjectMovement : MonoBehaviour {
                 Vector2 dir = new Vector2(this.transform.position.x, this.transform.position.y) - col.contacts[0].point;
                 this.GetComponent<Rigidbody2D>().AddForce(dir * GetShotForce());
                 this.GetComponent<Rigidbody2D>().AddTorque(-200);
+                ActivateVelocimeter(false);
                 gameControlRef.GetComponent<ScoreManager>().parseScore = true;
                 gameControlRef.AttachCamera();
                 Velocimeter.GetComponentInParent<DeactivateButton>().activateSelf(false);
@@ -109,7 +118,9 @@ public class ObjectMovement : MonoBehaviour {
             else if (col.gameObject.tag == "Enemy")
             {
                 Vector2 dir = new Vector2(-1, 1).normalized;
-                this.GetComponent<Rigidbody2D>().AddForce(dir * enemiesForceBase);
+
+                //this.GetComponent<Rigidbody2D>().AddForce(dir * enemiesForceBase);
+                this.GetComponent<Rigidbody2D>().AddForce(dir * this.GetComponent<Rigidbody2D>().velocity.magnitude * enemiesForceBase);
                 this.GetComponent<Rigidbody2D>().AddTorque(5.0f);
             }
         }

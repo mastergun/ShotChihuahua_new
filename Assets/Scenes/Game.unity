@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.785, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.8999939, y: 0}
+  m_AnchoredPosition: {x: 1.9000244, y: 0}
   m_SizeDelta: {x: -1.7000122, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114037572
@@ -850,10 +850,10 @@ RectTransform:
   m_Father: {fileID: 114037571}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.94401}
-  m_AnchorMin: {x: 0.34631798, y: 0.3502641}
-  m_AnchorMax: {x: 1, y: 0.81373584}
-  m_AnchoredPosition: {x: 0.79999924, y: 0.3999939}
-  m_SizeDelta: {x: 190.9, y: -188.7}
+  m_AnchorMin: {x: 0.22241265, y: 0.35021707}
+  m_AnchorMax: {x: 1, y: 0.7942042}
+  m_AnchoredPosition: {x: 3, y: 1.4999695}
+  m_SizeDelta: {x: 139.9, y: -167.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &315125028
 MonoBehaviour:
@@ -1335,6 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateInput: 0
+  chihuahuaRef: {fileID: 1612071320}
 --- !u!95 &533679080
 Animator:
   serializedVersion: 3
@@ -2340,9 +2341,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.98047453, y: 0.75}
+  m_AnchoredPosition: {x: 4.5, y: 0}
+  m_SizeDelta: {x: 9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837952190
 MonoBehaviour:
@@ -4880,10 +4881,10 @@ RectTransform:
   m_Father: {fileID: 315125027}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.023875874, y: 0}
+  m_AnchorMax: {x: 0.9761242, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_SizeDelta: {x: 2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1612071320
 GameObject:
@@ -5012,11 +5013,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 84fe1e164c642034796f38d1df7879e7, type: 3}
   - {fileID: 21300000, guid: c1a158bbf90a3ab4181d00ad0264c2e6, type: 3}
   forceBase: 40000
-  enemiesForceBase: 10000
+  enemiesForceBase: 500
   gameControlRef: {fileID: 1388276999}
   initPos: {x: 1.5, y: 3.5, z: 0}
   hitChihuahua: {fileID: 8300000, guid: f7dd4dbdfdcd9104daeceae3a42df910, type: 3}
   Velocimeter: {fileID: 315125028}
+  velocDownVelocity: 0.07
+  velocUpVelocity: 0.03
 --- !u!82 &1612071326
 AudioSource:
   m_ObjectHideFlags: 0

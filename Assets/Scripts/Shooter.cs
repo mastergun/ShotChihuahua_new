@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Shooter : MonoBehaviour {
     bool pressed = false;
     public bool deactivateInput = true;
+    public GameObject chihuahuaRef;
  
     // Use this for initialization
     void Start () {
@@ -20,12 +21,14 @@ public class Shooter : MonoBehaviour {
             {
                 pressed = true;
                 this.GetComponent<Animator>().SetBool("shot", true);
+                chihuahuaRef.GetComponent<ObjectMovement>().ActivateVelocimeter(false);
             }
         }
     }
 
     public void ResetAnim(){
         this.GetComponent<Animator>().SetBool("shot", false);
+        chihuahuaRef.GetComponent<ObjectMovement>().ActivateVelocimeter(true);
         pressed = false;
     }
 
