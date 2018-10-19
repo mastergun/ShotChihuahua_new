@@ -55,6 +55,7 @@ public class ScoreManager : MonoBehaviour {
             MaxScoreBackground.SetActive(true);
             source.PlayOneShot(amazingEffect, 1.0f);
         }
+        else if (currentScore < 0) currentScore = 0;
     }
 
     public void ResetCurrentScore()

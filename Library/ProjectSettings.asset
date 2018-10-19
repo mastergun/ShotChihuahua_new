@@ -131,7 +131,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.4
+  bundleVersion: 1.5
   preloadedAssets:
   - {fileID: 1178443337464008, guid: 52d5529be0e28e94eae79c3e349760db, type: 2}
   - {fileID: 1670113580698608, guid: fbe16a0c7f1a4044e8fe63f6939a01f2, type: 2}
@@ -173,7 +173,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.MirrorGames.ShotChihuahua
   buildNumber: {}
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0

@@ -48,7 +48,8 @@ public class ObjectMovement : MonoBehaviour {
                 flying = false;
                 gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
             }
-        }else if (this.GetComponent<Rigidbody2D>().velocity.magnitude <0.1 && this.transform.position.y < -1)
+        }
+        else if (this.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1 && this.transform.position.y < -1)
         {
             this.GetComponent<SpriteRenderer>().sprite = frames[0];
             this.transform.rotation = Quaternion.identity;
@@ -62,7 +63,7 @@ public class ObjectMovement : MonoBehaviour {
             gameControlRef.foot.deactivateInput = false;
             gameControlRef.GetComponent<InterfaceControl>().ActivateRestartMenu();
         }
-        else if(!flying && activateVelocimeter)
+        else if (!flying && activateVelocimeter)
         {
             if (up)
             {
