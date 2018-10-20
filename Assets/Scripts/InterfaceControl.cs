@@ -17,7 +17,7 @@ public class InterfaceControl : MonoBehaviour {
 
     public GameObject[] menus;
     public GameObject undoButton;
-    bool menusInPause = false;
+    public bool lastStageActivated = false;
     // Use this for initialization
     void Start()
     {
@@ -40,7 +40,7 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.INGAMEUI].SetActive(false);
         menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(false);
-        menusInPause = false;
+        lastStageActivated = false;
     }
 
     public void SetTeamMenu(bool activated)
@@ -78,32 +78,44 @@ public class InterfaceControl : MonoBehaviour {
         menus[(int)stage.RESTARTMENU].SetActive(false);
         undoButton.SetActive(false);
         this.GetComponent<LevelGenerator>().ResetGame();
-        menusInPause = false;
+        lastStageActivated = false;
     }
 
     public void ActivateRestartMenu()
     {
         menus[(int)stage.RESTARTMENU].SetActive(true);
+        lastStageActivated = true;
     }
 
     public void PauseGame(bool pause)
     {
-        menus[(int)stage.PAUSEMENU].SetActive(true);
+        //menus[(int)stage.PAUSEMENU].SetActive(true);
+        //if (pause)
+        //{
+        //    if (menus[(int)stage.RESTARTMENU].activeInHierarchy)
+        //    {
+        //        menusInPause = true;
+        //    }
+        //}
+        //else
+        //{
+        //    menus[(int)stage.PAUSEMENU].SetActive(false);
+        //    if (menusInPause)
+        //    {
+        //        menus[(int)stage.RESTARTMENU].SetActive(true);
+        //    }
+        //    menusInPause = false;
+        //}
+        menus[(int)stage.PAUSEMENU].SetActive(pause);
         if (pause)
         {
-            if (menus[(int)stage.RESTARTMENU].activeInHierarchy)
-            {
-                menusInPause = true;
-            }
+            if(lastStageActivated) menus[(int)stage.RESTARTMENU].SetActive(false);
+            this.GetComponent<LevelGenerator>().PauseGame(true);
         }
         else
         {
-            menus[(int)stage.PAUSEMENU].SetActive(false);
-            if (menusInPause)
-            {
-                menus[(int)stage.RESTARTMENU].SetActive(true);
-            }
-            menusInPause = false;
+            if (lastStageActivated) menus[(int)stage.RESTARTMENU].SetActive(true);
+            this.GetComponent<LevelGenerator>().PauseGame(false);
         }
     }  
 }

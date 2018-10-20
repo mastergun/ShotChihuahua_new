@@ -93,7 +93,16 @@ public class ObjectMovement : MonoBehaviour {
 
     float GetShotForce()
     {
-        float force = Mathf.Clamp(velocimeterCounter, 0.3f, 1); ;
+        float force = 0;
+        if (velocimeterCounter >= 1)
+        {
+            forceBase = 1.5f;
+            Debug.Log("smash!! " + velocimeterCounter);
+        }
+        else {
+            Debug.Log("normal hit " + velocimeterCounter);
+            force = Mathf.Clamp(velocimeterCounter, 0.3f, 1);
+        }
         force *= forceBase;
         return force;
     }

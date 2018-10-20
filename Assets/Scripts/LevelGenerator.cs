@@ -9,7 +9,8 @@ public class LevelGenerator : MonoBehaviour {
         GROUND,
         CITY,
         SKY,
-        GALAXY
+        GALAXY,
+        FARGALAXY
     }
 
     //public methods
@@ -75,6 +76,7 @@ public class LevelGenerator : MonoBehaviour {
         else if (stage == STAGE.CITY) citiesInGame.Add(InicializeBackGround(parentPosX, stage));
         else if (stage == STAGE.SKY) skiesInGame.Add(InicializeBackGround(parentPosX, stage));
         else if (stage == STAGE.GALAXY) galaxiesInGame.Add(InicializeBackGround(parentPosX, stage));
+        else if (stage == STAGE.FARGALAXY) galaxiesInGame.Add(InicializeBackGround(parentPosX, stage));
     }
 
     public void RemoveGround(GameObject ground, int type)
@@ -125,6 +127,8 @@ public class LevelGenerator : MonoBehaviour {
 
         if (stage == STAGE.SKY) yPos += 26;
         if (stage == STAGE.GALAXY) yPos += 52;
+        if (stage == STAGE.FARGALAXY) yPos += 78;
+
 
         bg = (GameObject)Instantiate(prefab, new Vector3(xPos, yPos, 2.0f), transform.rotation);
         bg.GetComponent<AutoDestroy>().numOfEnemies = 0;
@@ -136,6 +140,7 @@ public class LevelGenerator : MonoBehaviour {
             AddBackground(0, xPos, STAGE.GALAXY);
             backgroundIndex++;
         }
+        if (stage == STAGE.GALAXY) AddBackground(0, xPos, STAGE.FARGALAXY);
         return bg;
     }
 
@@ -147,7 +152,7 @@ public class LevelGenerator : MonoBehaviour {
 
         this.GetComponent<ScoreManager>().ResetCurrentScore();
         chihuahuaRef.GetComponent<ObjectMovement>().ResetObject();
-        //chihuahuaRef.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1) * 4000);
+        this.GetComponent<InterfaceControl>().lastStageActivated = false;
        
         ResetBackground();
         backgroundIndex = 1;
