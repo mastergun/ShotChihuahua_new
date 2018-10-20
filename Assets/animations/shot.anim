@@ -203,7 +203,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.25
+  - time: 0.2
     functionName: ResetAnim
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 097801791ca392e4f9e8c0b0f4ef078f,

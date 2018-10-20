@@ -89,35 +89,11 @@ public class InterfaceControl : MonoBehaviour {
 
     public void PauseGame(bool pause)
     {
-        //menus[(int)stage.PAUSEMENU].SetActive(true);
-        //if (pause)
-        //{
-        //    if (menus[(int)stage.RESTARTMENU].activeInHierarchy)
-        //    {
-        //        menusInPause = true;
-        //    }
-        //}
-        //else
-        //{
-        //    menus[(int)stage.PAUSEMENU].SetActive(false);
-        //    if (menusInPause)
-        //    {
-        //        menus[(int)stage.RESTARTMENU].SetActive(true);
-        //    }
-        //    menusInPause = false;
-        //}
-        menus[(int)stage.PAUSEMENU].SetActive(pause);
-        if (pause)
-        {
-            if(lastStageActivated) menus[(int)stage.RESTARTMENU].SetActive(false);
-            this.GetComponent<LevelGenerator>().PauseGame(true);
+        if (!lastStageActivated) {
+            menus[(int)stage.PAUSEMENU].SetActive(pause);
+            this.GetComponent<LevelGenerator>().PauseGame(pause);
         }
-        else
-        {
-            if (lastStageActivated) menus[(int)stage.RESTARTMENU].SetActive(true);
-            this.GetComponent<LevelGenerator>().PauseGame(false);
-        }
-    }  
+    }
 }
 
 
