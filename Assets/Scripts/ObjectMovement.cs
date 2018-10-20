@@ -97,14 +97,14 @@ public class ObjectMovement : MonoBehaviour {
         if (velocimeterCounter >= 1)
         {
             force = 1.5f;
-            Debug.Log("smash!! " + velocimeterCounter);
+            
         }
         else {
-            Debug.Log("normal hit " + velocimeterCounter);
+
             force = Mathf.Clamp(velocimeterCounter, 0.3f, 1);
         }
         force *= forceBase;
-        Debug.Log("force is : "+force);
+
         return force;
     }
     public void ActivateVelocimeter(bool active)
@@ -120,7 +120,7 @@ public class ObjectMovement : MonoBehaviour {
             {
                 source.PlayOneShot(hitChihuahua, 1.0f);
                 this.GetComponent<SpriteRenderer>().sprite = frames[1];
-                Debug.Log(col.contacts[0].point);
+
                 Vector2 dir = Vector2.zero;
                 for(int i = 0; i < col.contacts.Length; i++)
                 {

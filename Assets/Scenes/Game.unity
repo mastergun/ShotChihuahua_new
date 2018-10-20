@@ -4621,8 +4621,8 @@ MonoBehaviour:
   hitChihuahua: {fileID: 8300000, guid: f7dd4dbdfdcd9104daeceae3a42df910, type: 3}
   trampolin: {fileID: 8300000, guid: 616883a390cfa004da28f801d54ff5dd, type: 3}
   Velocimeter: {fileID: 315125028}
-  velocDownVelocity: 0.05
-  velocUpVelocity: 0.05
+  velocDownVelocity: 0.08
+  velocUpVelocity: 0.08
 --- !u!82 &1612071326
 AudioSource:
   m_ObjectHideFlags: 0
