@@ -4216,7 +4216,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e8bb159af55d644498c99f142a626d4b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4236,16 +4236,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0ae2882338ef684388335e4881f4613, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93e6b688e91c8d14280775323b39909d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.2, y: 5.2}
-  m_AdaptiveModeThreshold: 0.5
+  m_AdaptiveModeThreshold: 1
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
 --- !u!114 &1376544965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,6 +4257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de2802028681724da45aac3abc7fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
   initPos: {x: 1.5, y: 113, z: 2}
   FlyingObjectRef: {fileID: 1612071320}
 --- !u!1 &1383975867
