@@ -18,6 +18,7 @@ public class LevelGenerator : MonoBehaviour {
     public List<GameObject> cityPrefabs;
     public List<GameObject> skyPrefabs;
     public GameObject galaxyPrefab;
+    public GameObject profundGalaxyPrefab;
 
     public GameObject chihuahuaRef;
     public GameObject cameraActor;
@@ -120,7 +121,8 @@ public class LevelGenerator : MonoBehaviour {
         
         if (stage == STAGE.CITY) prefab = cityPrefabs[(backgroundIndex % cityPrefabs.Count)];
         else if (stage == STAGE.SKY) prefab = skyPrefabs[(backgroundIndex % cityPrefabs.Count)];
-        else prefab = galaxyPrefab;
+        else if(stage == STAGE.GALAXY) prefab = galaxyPrefab;
+        else prefab = profundGalaxyPrefab;
 
         float xPos = groundPosX;
         float yPos = this.transform.position.y + groundScale.x/2;
