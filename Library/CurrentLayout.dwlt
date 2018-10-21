@@ -420,9 +420,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ee2c0000
-    m_LastClickedID: 11502
-    m_ExpandedIDs: 98fbffff00000000
+    m_SelectedIDs: 5c010000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 98bffeff80c0feff9ec1feff98fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -478,9 +478,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -7.2364526, y: 108.35833, z: 0.13276279}
+    m_Target: {x: 1008.7565, y: 620.68286, z: -6.375}
     speed: 2
-    m_Value: {x: -7.2364526, y: 108.35833, z: 0.13276279}
+    m_Value: {x: 1008.7565, y: 620.68286, z: -6.375}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -508,9 +508,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 40.790337
+    m_Target: 707.1691
     speed: 2
-    m_Value: 40.790337
+    m_Value: 707.1691
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -672,33 +672,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Sprites/FreeLicenceSprites
   m_ViewMode: 1
   m_StartGridSize: 95
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Sprites/FreeLicenceSprites
   m_LastFoldersGridSize: 95
   m_LastProjectPath: D:\coses a guardas\ProjectesMobil\ShotChihuahua_new
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 121}
-    m_SelectedIDs: 682c0000
-    m_LastClickedID: 11368
+    scrollPos: {x: 0, y: 189}
+    m_SelectedIDs: 2e2a0000
+    m_LastClickedID: 10798
     m_ExpandedIDs: 000000007a290000a42b0000002c0000262c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scripts
-      m_OriginalName: Scripts
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 11308
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -712,7 +712,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007a290000a42b0000262c0000
+    m_ExpandedIDs: 000000007a290000a42b0000002c0000262c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -764,7 +764,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 290}
     m_GridSize: 95
   m_DirectoriesAreaWidth: 193
 --- !u!114 &19
@@ -821,7 +821,7 @@ MonoBehaviour:
     width: 384
     height: 903
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 746.9551}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
