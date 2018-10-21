@@ -116,7 +116,7 @@ public class ObjectMovement : MonoBehaviour {
     {
         if (activatedCollisions)
         {
-            if (col.gameObject.tag == "Shooter")
+            if (col.gameObject.tag == "Shooter" && !flying)
             {
                 source.PlayOneShot(hitChihuahua, 1.0f);
                 this.GetComponent<SpriteRenderer>().sprite = frames[1];
