@@ -131,7 +131,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.8
+  bundleVersion: 1.7
   preloadedAssets:
   - {fileID: 1178443337464008, guid: 52d5529be0e28e94eae79c3e349760db, type: 2}
   - {fileID: 1670113580698608, guid: fbe16a0c7f1a4044e8fe63f6939a01f2, type: 2}
@@ -141,7 +141,6 @@ PlayerSettings:
   - {fileID: 1178231469888292, guid: 1f791bf61ce24504f945a4254a488095, type: 2}
   - {fileID: 1423160591866548, guid: cdd272aa2961af940a5070c953fef1cf, type: 2}
   - {fileID: 1268114716321154, guid: 6331a6fcdf25a624aa1a55c4a409d122, type: 2}
-  - {fileID: 1375075503305928, guid: bf863b2d0b5e8b642a32271f32ef4497, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -174,7 +173,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.MirrorGames.ShotChihuahua
   buildNumber: {}
-  AndroidBundleVersionCode: 7
+  AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
@@ -578,8 +577,7 @@ PlayerSettings:
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
-  apiCompatibilityLevelPerPlatform:
-    Android: 1
+  apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: ShotChihuahua_new
